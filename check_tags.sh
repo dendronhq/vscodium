@@ -1,10 +1,10 @@
 #!/bin/bash
 
-REPOSITORY=${TRAVIS_REPO_SLUG:-"VSCodium/vscodium"}
-GITHUB_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPOSITORY/releases/tags/$LATEST_MS_TAG)
-echo "Github response: ${GITHUB_RESPONSE}"
-VSCODIUM_ASSETS=$(echo $GITHUB_RESPONSE | jq '.assets')
-echo "VSCodium assets: ${VSCODIUM_ASSETS}"
+#REPOSITORY=${TRAVIS_REPO_SLUG:-"VSCodium/vscodium"}
+#GITHUB_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPOSITORY/releases/tags/$LATEST_MS_TAG)
+#echo "Github response: ${GITHUB_RESPONSE}"
+#VSCODIUM_ASSETS=$(echo $GITHUB_RESPONSE | jq '.assets')
+#echo "VSCodium assets: ${VSCODIUM_ASSETS}"
 
 # if we just don't have the github token, get out fast
 if [ "$GITHUB_TOKEN" != "" ]; then

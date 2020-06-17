@@ -4,7 +4,7 @@ if [ -d vscode ]; then
   cd vscode 
   git fetch --all
 else
-  git clone https://github.com/Microsoft/vscode.git
+  git clone -b dendron-dev git@github.com:dendronhq/vscode.git
   cd vscode
 fi
 
