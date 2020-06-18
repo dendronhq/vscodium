@@ -1,15 +1,12 @@
 #!/bin/bash
 
 if [ -d vscode ]; then
-  cd vscode 
-  git pull
-  git reset HEAD --hard
-  git clean -f -d
-else
-  #TODO: don't hardcode
-  git clone -b dendron-dev /Users/kevinlin/projects/vscode-extension/ref/vscode
-  cd vscode
+  rm -r vscode
 fi
+
+#TODO: don't hardcode
+git clone -b dendron-dev /Users/kevinlin/projects/vscode-extension/ref/vscode
+cd vscode
 
 export LATEST_MS_COMMIT=$(git rev-list --tags --max-count=1)
 export LATEST_MS_TAG=$(git describe --tags ${LATEST_MS_COMMIT})
