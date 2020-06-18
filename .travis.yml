@@ -1,63 +1,47 @@
 matrix:
   include:
-    # - os: linux
-    #   sudo: required
-    #   env: BUILDARCH=x64
-    #   dist: trusty
-    # - os: linux
-    #   sudo: required
-    #   env: BUILDARCH=arm64
-    #   dist: trusty
-    # - os: linux
-    #   sudo: required
-    #   env: BUILDARCH=arm
-    #   dist: trusty
-    - os: osx
-
+  - os: osx
 language: node_js
-node_js: "12"
-
+node_js: '12'
 before_install:
-  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - openssl aes-256-cbc -K $encrypted_8ebb1ef83f64_key -iv $encrypted_8ebb1ef83f64_iv -in github_deploy_key.enc -out github_deploy_key -d
-  - chmod 600 github_deploy_key
-  - eval $(ssh-agent -s)
-  - ssh-add github_deploy_key
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-  - export GITHUB_TOKEN="foo"
-  - . install_deps.sh
-  - . get_repo.sh
-  - . check_tags.sh
-
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- openssl aes-256-cbc -K $encrypted_8ebb1ef83f64_key -iv $encrypted_8ebb1ef83f64_iv
+  -in github_deploy_key.enc -out github_deploy_key -d
+- chmod 600 github_deploy_key
+- eval $(ssh-agent -s)
+- ssh-add github_deploy_key
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
+- export GITHUB_TOKEN="foo"
+- ". install_deps.sh"
+- ". get_repo.sh"
+- ". check_tags.sh"
 script:
-  - ./build.sh
-
+- "./build.sh"
 before_deploy:
-  - ./sign_mac_app.sh
-  - ./create_zip.sh
-  - ./create_dmg.sh
-  - ./sum.sh
-
+- "./sign_mac_app.sh"
+- "./create_zip.sh"
+- "./create_dmg.sh"
+- "./sum.sh"
 deploy:
   provider: releases
   skip_cleanup: true
   overwrite: true
-  name: $LATEST_MS_TAG
-  api_key: $GITHUB_TOKEN
+  name: "$LATEST_MS_TAG"
+  api_key: "$GITHUB_TOKEN"
   file_glob: true
   file:
-    - ./*.sha256
-    - ./*.zip
-    - ./*.tar.gz
-    - ./*.dmg
-    - ./*.deb
-    - ./*.rpm
-    - ./*.AppImage
-    - ./*.AppImage.zsync
+  - "./*.sha256"
+  - "./*.zip"
+  - "./*.tar.gz"
+  - "./*.dmg"
+  - "./*.deb"
+  - "./*.rpm"
+  - "./*.AppImage"
+  - "./*.AppImage.zsync"
   on:
     all_branches: true
-    condition: $SHOULD_BUILD = yes
-
-# after_deploy:
-#   - ./update_version.sh
+    condition: "$SHOULD_BUILD = yes"
+notifications:
+  slack:
+    secure: btMOa9anSEVUaPDqADP9lOmOg1oHq1uvAbe99Z1abPVZzAw3VJTNvMUOq0b0TN9X1eQIDzdNJE9femeB5keEMK6UZlXO05yyxhm5mNob5lprml3t5kG8GeLEJlLRyI3ixaHqp19yX/ZWUcDNz6DJziRSLufivFfkSev6VTTiHqtfrFACRwIVdhRHJCg/oK7XuLF9ROSqAzGrvl0fveLEu8ElX4xURyFBFnu1NJG/yMsdqbNAJTHvkFWg+ZpJTDbYPNpbhN+EQyifif/1QhnMb78aPP59vOTxZ/Ztlu96zTlVO1RL+IB/a0Dc7p/zm0ptRrL6+sp0p2raHz63hBnttTPmQ9nbDrTvpEGtvTFpX718gwxK07VeLDQ9gbsv4J8SgyPu3ExwURzamPLdVNphMesnafX7jye8A9EbaZJVgSGEoGDsUxMjXLSuJeefWlmPOJv3o34ywnBar5g7mpyYnmTLg94SOgLLklWDb6E4JeQ6ij9iSQ70o7PqabJI5sbRY9P3CR8x20nf1j5v5rpJRud8Wdx52zQJSXRZXXn8Bz8cuhW7so7ScrIie+MhLva+6izN0XS4hBO1ZVoBO41MwRfziN5t1G1205EpAfpFw+73o14jn9m+HtxomkCzSY3zyMuYzFTK/63Sm8v8vwFovVgVZ3J5VUfakhI+hqNUMfc=
