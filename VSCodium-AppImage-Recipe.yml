@@ -5,7 +5,7 @@
 # wget -c "https://github.com/AppImage/pkg2appimage/raw/master/pkg2appimage"
 # bash -ex pkg2appimage VSCodium
 
-app: VSCodium
+app: Dendron
 
 ingredients:
   packages:

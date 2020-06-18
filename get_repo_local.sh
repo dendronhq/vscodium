@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -d vscode ]; then
-  rm -r vscode
+  rm -rf vscode
 fi
 
 #TODO: don't hardcode

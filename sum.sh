@@ -20,19 +20,19 @@ sum_file () {
 
 if [[ "$SHOULD_BUILD" == "yes" ]]; then
   if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    sum_file VSCodium-darwin-*.zip
-    sum_file VSCodium*.dmg
+    sum_file Dendron-darwin-*.zip
+    sum_file Dendron*.dmg
   elif [[ "$CI_WINDOWS" == "True" ]]; then
-    sum_file VSCodiumSetup-*.exe
-    sum_file VSCodiumUserSetup-*.exe
-    sum_file VSCodium-win32-*.zip
+    sum_file DendronSetup-*.exe
+    sum_file DendronUserSetup-*.exe
+    sum_file Dendron-win32-*.zip
   else # linux
     cp out/*.AppImage .
     cp vscode/.build/linux/deb/*/deb/*.deb .
     cp vscode/.build/linux/rpm/*/*.rpm .
 
     sum_file *.AppImage
-    sum_file VSCodium-linux*.tar.gz
+    sum_file Dendron-linux*.tar.gz
     sum_file *.deb
     sum_file *.rpm
   fi

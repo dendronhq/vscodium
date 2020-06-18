@@ -6,7 +6,7 @@ if [[ "$SHOULD_BUILD" == "yes" ]]; then
   if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     if [ -d "VSCode-darwin" ]; then # just in case the build failed
       cd VSCode-darwin
-      export CERTIFICATE_P12=VSCodium.p12
+      export CERTIFICATE_P12=Dendron.p12
       echo $CERTIFICATE_OSX_P12 | base64 --decode > $CERTIFICATE_P12
       export KEYCHAIN=build.keychain
       security create-keychain -p mysecretpassword $KEYCHAIN
@@ -17,7 +17,7 @@ if [[ "$SHOULD_BUILD" == "yes" ]]; then
       # https://docs.travis-ci.com/user/common-build-problems/
       security set-key-partition-list -S apple-tool:,apple: -s -k mysecretpassword $KEYCHAIN
       
-      codesign --deep --force --verbose --sign "$CERTIFICATE_OSX_ID" VSCodium.app
+      codesign --deep --force --verbose --sign "$CERTIFICATE_OSX_ID" Dendron.app
     fi
   fi
 fi
