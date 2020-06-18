@@ -12,7 +12,6 @@ before_install:
 - ssh-add github_deploy_key
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH="$HOME/.yarn/bin:$PATH"
-- export GITHUB_TOKEN="foo"
 - ". install_deps.sh"
 - ". get_repo.sh"
 - ". check_tags.sh"
@@ -45,3 +44,6 @@ deploy:
 notifications:
   slack:
     secure: btMOa9anSEVUaPDqADP9lOmOg1oHq1uvAbe99Z1abPVZzAw3VJTNvMUOq0b0TN9X1eQIDzdNJE9femeB5keEMK6UZlXO05yyxhm5mNob5lprml3t5kG8GeLEJlLRyI3ixaHqp19yX/ZWUcDNz6DJziRSLufivFfkSev6VTTiHqtfrFACRwIVdhRHJCg/oK7XuLF9ROSqAzGrvl0fveLEu8ElX4xURyFBFnu1NJG/yMsdqbNAJTHvkFWg+ZpJTDbYPNpbhN+EQyifif/1QhnMb78aPP59vOTxZ/Ztlu96zTlVO1RL+IB/a0Dc7p/zm0ptRrL6+sp0p2raHz63hBnttTPmQ9nbDrTvpEGtvTFpX718gwxK07VeLDQ9gbsv4J8SgyPu3ExwURzamPLdVNphMesnafX7jye8A9EbaZJVgSGEoGDsUxMjXLSuJeefWlmPOJv3o34ywnBar5g7mpyYnmTLg94SOgLLklWDb6E4JeQ6ij9iSQ70o7PqabJI5sbRY9P3CR8x20nf1j5v5rpJRud8Wdx52zQJSXRZXXn8Bz8cuhW7so7ScrIie+MhLva+6izN0XS4hBO1ZVoBO41MwRfziN5t1G1205EpAfpFw+73o14jn9m+HtxomkCzSY3zyMuYzFTK/63Sm8v8vwFovVgVZ3J5VUfakhI+hqNUMfc=
+env:
+  global:
+    secure: ZDuF6XIRjjxQnAu+WYFThmjYSUEpSQRzoC1neNS1tUUEbuXPvjSVTNA4w3Lcmb0uygjIlgUzW0iMy641rMJKV19IpMrmYhnQMzvo+KRjexl0QGgNw8yyI387Hj+qV8Vlf6KDC/kJPZZ2aekq04yJ8hNEB3W6WrX03H7xzENqeKHTlC10j0ZcNaak7IsMpdRwL3K6mIl/Yfsp9B4Lwi9uYGbvq9e76LTZ4KtaxyJsEAVmqN7rzT11Ynff6G0RbfnXH65FWefw84P+a1KwTrOQKu8IfhalexOtJuOtwEuTuJFikCLTNrbKdoQiTFUOxn5Xs6sXVYXLzfcDkQ8TUM+1IZfKTQ1T4KOFVUWfvgXSvJBTpdOP0VW21RPz+QhRv4w+0Jyu9XieZD7VifbgnJ5Rg5Nrs5ykNj43627RaIl20Un9Wr51doeG7rl0+Ot1NcdZ/scpftNy3dQFsOqfq23pMOuvWh+AbXLzlxr0Mu/bAQE3DwUrpSge94UlNJm+jzWtM9Ju++qWCL3HHl925SoCKg4mx88RU9FeZugug9IOugUsFuwLvveam8T2bKv0JlCEyKeGdcHiXlAyBgeFN1oosnbKXKjGf2BB95npiDFsS2kBWceyLPA4p27hCKB5ZSb7o5Y/e58sGYTjQrrDy0RiM6vFMs+UaGz/CvK/sOkEvYo=
