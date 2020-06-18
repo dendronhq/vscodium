@@ -12,16 +12,16 @@ before_install:
 - ssh-add github_deploy_key
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH="$HOME/.yarn/bin:$PATH"
-- ". install_deps.sh"
-- ". get_repo.sh"
-- ". check_tags.sh"
+- . install_deps.sh
+- . get_repo.sh
+- . check_tags.sh
 script:
-- "./build.sh"
+- ./build.sh
 before_deploy:
-- "./sign_mac_app.sh"
-- "./create_zip.sh"
-- "./create_dmg.sh"
-- "./sum.sh"
+#- ./sign_mac_app.sh
+- ./create_zip.sh
+- ./create_dmg.sh
+- ./sum.sh
 deploy:
   provider: releases
   skip_cleanup: true
@@ -30,14 +30,14 @@ deploy:
   api_key: "$GITHUB_TOKEN"
   file_glob: true
   file:
-  - "./*.sha256"
-  - "./*.zip"
-  - "./*.tar.gz"
-  - "./*.dmg"
-  - "./*.deb"
-  - "./*.rpm"
-  - "./*.AppImage"
-  - "./*.AppImage.zsync"
+  - ./*.sha256
+  - ./*.zip
+  - ./*.tar.gz
+  - ./*.dmg
+  - ./*.deb
+  - ./*.rpm
+  - ./*.AppImage
+  - ./*.AppImage.zsync
   on:
     all_branches: true
     condition: "$SHOULD_BUILD = yes"
