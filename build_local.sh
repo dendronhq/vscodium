@@ -7,6 +7,11 @@ export CI_WINDOWS='False'
 export SHOULD_BUILD='yes'
 export GITHUB_TOKEN="dummy_token"
 
+if [[ "$SLACK_TOKEN" == "" ]]; then
+    echo "slack token not set"
+    exit 1
+fi
+
 # use to resume build
 #export SKIP_GET_REPO=yes
 
@@ -28,4 +33,6 @@ time ./create_zip.sh
 time ./create_dmg.sh
 time ./sum.sh
 
-echo "done: `date`"
+echo "`date`: done"
+# TODO: don't hardcode
+node /Users/kevinlin/projects/vscode-extension/ref/slack-local-cli/main.js --msg "done deploying"
