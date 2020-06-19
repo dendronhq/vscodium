@@ -1,15 +1,62 @@
-[{
+[
+  {
     "name": "shd101wyy.markdown-preview-enhanced",
     "version": "0.5.12",
     "repo": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced",
     "metadata": {
-        "id": "3b1db1fc-c7f7-4bd6-9fa4-b499dfa99a8a",
-        "publisherId": {
-            "publisherId": "deac4ec9-08f5-4752-aa45-c6f09e1f615d",
-            "publisherName": "shd101wyy",
-            "displayName": "Yiyi Wang",
-            "flags": "verified"
-        },
-        "publisherDisplayName": "Yiyi Wang"
+      "id": "3b1db1fc-c7f7-4bd6-9fa4-b499dfa99a8a",
+      "publisherId": {
+        "publisherId": "deac4ec9-08f5-4752-aa45-c6f09e1f615d",
+        "publisherName": "shd101wyy",
+        "displayName": "Yiyi Wang",
+        "flags": "verified"
+      },
+      "publisherDisplayName": "Yiyi Wang"
     }
-}]
+  },
+  {
+    "name": "dkundel.vscode-new-file",
+    "version": "4.0.2",
+    "repo": "https://github.com/dkundel/vscode-new-file",
+    "metadata": {
+      "id": "77b70e30-3534-4098-9d6d-382a96babca4",
+      "publisherId": {
+        "publisherId": "0eff48ba-abda-4eb0-b450-e4a1e8a35cc7",
+        "publisherName": "dkundel",
+        "displayName": "Dominik Kundel",
+        "flags": "verified"
+      },
+      "publisherDisplayName": "Dominik Kundel"
+    }
+  },
+  {
+    "name": "sleistner.vscode-fileutils",
+    "version": "3.0.1",
+    "repo": "https://github.com/sleistner/vscode-fileutils",
+    "metadata": {
+      "id": "d637104e-1fd7-4063-98fc-8afe46012c9b",
+      "publisherId": {
+        "publisherId": "99ce6203-6065-4d93-983f-c3a097ebbfe2",
+        "publisherName": "sleistner",
+        "displayName": "Steffen Leistner",
+        "flags": "verified"
+      },
+      "publisherDisplayName": "Steffen Leistner"
+    }
+  },
+  {
+    "name": "vscodevim.vim",
+    "version": "1.14.5",
+    "repo": "https://github.com/VSCodeVim/Vim",
+    "metadata": {
+      "id": "d96e79c6-8b25-4be3-8545-0e0ecefcae03",
+      "publisherId": {
+        "publisherId": "5d63889b-1b67-4b1f-8350-4f1dce041a26",
+        "publisherName": "vscodevim",
+        "displayName": "vscodevim",
+        "flags": "verified"
+      },
+      "publisherDisplayName": "vscodevim"
+    }
+  }
+]
