@@ -16,7 +16,8 @@ before_install:
 - . get_repo.sh
 - . check_tags.sh
 script:
-- ./build.sh
+- ./build1.sh
+- ./build2.sh
 before_deploy:
 #- ./sign_mac_app.sh
 - ./create_zip.sh
